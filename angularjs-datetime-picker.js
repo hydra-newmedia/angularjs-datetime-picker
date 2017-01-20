@@ -277,6 +277,9 @@
             dateValue = dateFilter(scope.selectedDate, dateFormat);
           }
           elScope.$eval(attrs.ngModel + '= date', {date: dateValue});
+
+          // fire callback function wenn model has changed
+          scope.editCallback();
         }
       };
 
@@ -295,7 +298,8 @@
         hour: '=',
         minute: '=',
         dateOnly: '=',
-        closeOnSelect: '='
+        closeOnSelect: '=',
+        editCallback: '='
       },
       link: linkFunc
     };
